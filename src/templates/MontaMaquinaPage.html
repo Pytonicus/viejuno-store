@@ -1,0 +1,31 @@
+<article>
+    <div class="container">
+        <h3>Personaliza tu sistema</h3>
+        <div id="tipo_sistema">
+            <h4>Elige el tipo de sistema que quieres montar</h4>
+            <div class="fila">
+                <div class="columna" v-for="tipos in tipo_sistema" :key="tipos.tipo">
+                    <img class="seleccion" :src="tipos.imagen" :alt="tipos.tipo">
+                    <button @click="siguientePregunta(tipos.tipo, 'tipo_sistema', 'tipo_carcasa')">{{tipos.tipo}}</button>
+                </div>
+            </div>
+        </div>
+        <div id="tipo_carcasa" class="borrar ocultar">
+            <h4>Elige la carcasa que quieres para tu máquina</h4>
+            <div class="fila">
+                <div class="columna" v-for="carcasa in tipo_carcasa">
+                    <img class="seleccion" :src="carcasa.imagen" :alt="carcasa.nombre">
+                    <div class="content">
+                        <h5>{{carcasa.nombre}}</h5>
+                        <small>Precio: {{carcasa.precio}} €</small>
+                        <p>{{ carcasa.descripcion }}</p>
+                    </div>
+                    <button @click="siguientePregunta(carcasa.nombre, 'tipo_carcasa', 'tipo_placa')">elegir</button>
+                </div>
+            </div>
+        </div>
+        <div id="tipo_placa" class="borrar ocultar">
+            <h4>Elige el tipo de placa</h4>
+        </div>
+    </div>
+</article>
